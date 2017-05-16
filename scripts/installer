@@ -2,5 +2,18 @@
 
 set -eu
 
+if [ ! `which virtualbox` ]; then
+  brew cask install virtualbox
+fi
+
+if [ ! `which vagrant` ]; then
+  brew cask install vagrant
+  brew cask install vagrant-manager
+fi
+
+if [ ! `which ansible` ]; then
+  brew install ansible
+fi
+
 vagrant plugin install vagrant-global-status
 vagrant plugin install vagrant-share --plugin-version 1.1.8

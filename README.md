@@ -4,6 +4,6 @@ umbra
 Introduction
 ---------------
 
-1. `make setup`
-2. if not ssh-keygen, just do
-`ssh-keygen -t rsa -f vagrant`
+1. `make install`
+2. `make setup(skip)
+3. `make run or make`
