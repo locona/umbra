@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+UMBRA_ROOT
+
+set -eu
+set -o pipefail
+
+SSH_PATH=$HOME/.ssh
+
+if [ ! `which virtualbox` ]; then
+  brew cask install virtualbox
+fi
+
+if [ ! `which vagrant` ]; then
+  brew cask install vagrant
+  brew cask install vagrant-manager
+fi
+
+if [ ! `which ansible` ]; then
+  brew install ansible
+fi
+
+if [ ! -d $UMBRA_ROOT/.ssh ]; then
+  mkdir $UMBRA_ROOT/.ssh
+  echo You must do 'ssh-keygen -t rsa -f vagrant'
+  echo And retry 'make setup'
+  exit 1
+fi
+
+if [ ! -e $UMBRA_ROOT/.ssh/vagrant && $UMBRA_ROOT/.ssh/vagrant.pub ]; then
+  echo You must do 'ssh-keygen -t rsa -f vagrant'
+  echo And retry 'make setup'
+  exit 1
+fi
+
+if [ -d $UMBRA_ROOT/.ssh &&  ]; then
+  [ -e $SSH_PATH/vagrant ]     || ln -s $UMBRA_ROOT/.ssh/vagrant $SSH_PATH/vagrant
+  [ -e $SSH_PATH/vagrant.pub ] || ln -s $UMBRA_ROOT/.ssh/vagrant.pub $SSH_PATH/vagrant.pub
+
+  chmod 0600 $SSH_PATH/vagrant
+  chmod 0600 $SSH_PATH/vagrant.pub
+fi
