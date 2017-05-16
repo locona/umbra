@@ -14,9 +14,9 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   # config.vm.box = "bento/centos-7.1"
 
-  config.vm.define "host" do |node|
+  config.vm.define "vagrant" do |node|
     node.vm.box = "bento/centos-7.1"
-    node.vm.hostname = "host"
+    node.vm.hostname = "vagrant"
     node.vm.network :private_network, ip: "192.168.33.11"
   end
 
