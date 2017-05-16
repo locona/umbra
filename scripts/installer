@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eu
+
+vagrant plugin install vagrant-global-status
+vagrant plugin install vagrant-share --plugin-version 1.1.8
