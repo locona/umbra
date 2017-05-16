@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+SSH_HOSTS_PATH=$HOME/.ssh/conf.d/hosts
+
+set -eu
+
+if [ ! -d $SSH_HOSTS_PATH ]; then
+  mkdir -p $SSH_HOSTS_PATH
+fi
+
+vagrant up
+vagrant ssh-config > $SSH_HOSTS_PATH/vagrant
