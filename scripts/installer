@@ -2,8 +2,6 @@
 
 set -eu
 
-vagrant init bento/centos-7.1
-
 if [ ! `which virtualbox` ]; then
   echo Install virtualbox
   brew cask install virtualbox
