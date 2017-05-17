@@ -1,0 +1,9 @@
+---
+- hosts: vagrant
+  become: True
+  tasks:
+    - name: Update yum
+      yum: name=* state=latest
+
+    - name: git install
+      yum: name=git state=latest

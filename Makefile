@@ -8,3 +8,6 @@ install:
 
 run:
 	@sh scripts/run
+
+ansible-run:
+	@ansible-playbook ansible/playbook.yml -i ansible/hosts
